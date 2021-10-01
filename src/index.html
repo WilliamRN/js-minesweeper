@@ -4,7 +4,21 @@
         <script src="minesweeper.js"></script>
         <script>
             window.onload = function (ev) {
-                mineSweeper.init(12, 8, 120, mineSweeper.dificulties.medium);
+			
+				var url = new URL(window.location.href);
+				var t = url.searchParams.get("t");
+				
+				switch(t) {
+					case '1': // mobile
+						mineSweeper.init(12, 8, 120, mineSweeper.dificulties.medium);
+						break;
+					case '2': // desktop
+						mineSweeper.init(20, 40, 34, mineSweeper.dificulties.medium);
+						break;
+					default: // default
+						mineSweeper.init(12, 8, 120, mineSweeper.dificulties.medium);
+						break;
+				}
             }
         </script>
     </head>
