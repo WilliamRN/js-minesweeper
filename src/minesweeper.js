@@ -121,7 +121,13 @@ var mineSweeper = function () {
         }
     }();
 
-    function init(rows = 10, columns = 10, cellSize = 30, dificulty = dificulties.veryEasy){
+    function init(rows = 10, columns = 10, cellSize = 30, dificulty = dificulties.veryEasy) {
+		
+		rows = Number.parseInt(rows);
+		columns = Number.parseInt(columns);
+		cellSize = Number.parseInt(cellSize);
+		dificulty = Number.parseFloat(dificulty);
+		
         dificultySelected = dificulty;
         canvas = document.getElementById(minesweeperConfig.canvasName);
         canvas.width = cellSize * columns;

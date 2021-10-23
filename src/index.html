@@ -8,15 +8,24 @@
 				var url = new URL(window.location.href);
 				var t = url.searchParams.get("t");
 				
+				var r = url.searchParams.get("r");
+				var c = url.searchParams.get("c");
+				var s = url.searchParams.get("s");
+				var d = url.searchParams.get("d");
+				
 				switch(t) {
-					case '1': // mobile
-						mineSweeper.init(12, 8, 120, mineSweeper.dificulties.medium);
+					case 'mobile': // mobile
+						mineSweeper.init(14, 8, 120, mineSweeper.dificulties.medium);
 						break;
-					case '2': // desktop
+					case 'desktop': // desktop
 						mineSweeper.init(20, 40, 34, mineSweeper.dificulties.medium);
 						break;
 					default: // default
-						mineSweeper.init(12, 8, 120, mineSweeper.dificulties.medium);
+						if (r > 0 && c > 0 && s > 0 && d > 0) {
+							mineSweeper.init(r, c, s, d);
+						} else {
+							mineSweeper.init(10, 10, 50, mineSweeper.dificulties.medium);
+						}
 						break;
 				}
             }
